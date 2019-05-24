@@ -1,0 +1,143 @@
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="lib/angular-material.min.css">
+    <script src="lib/lib/kotlin.js"></script>
+    <script src="lib/lib/kotlin.meta.js"></script>
+    <script src="lib/finjs.js"></script>
+    <script src="lib/finjs.meta.js"></script>
+</head>
+
+<body ng-app="BlankApp" ng-cloak ng-controller="myCtrl">
+    <!--
+    Your HTML content here
+  -->
+    <div>
+        <div class="d-inline-block align-top">
+            <div>Init conditions</div>
+            <div>downpayment<input ng-model="init.downpayment" /></div>
+            <div>free-money<input ng-model="init.freeMoney" /></div>
+            <div>sergeySalary<input ng-model="init.sergeySalary" /></div>
+            <div>valyaSalary<input ng-model="init.valyaSalary" /></div>
+            <div>expenses.life<input ng-model="init.expenses.life" /></div>
+            <div>expenses.life<input ng-model="init.expenses.rent" /></div>
+            <div>iters<input ng-model="init.iters" /></div>
+        </div>
+        <div class="d-inline-block align-top">
+            <div>Buy a house</div>
+            <div>Enabled: <input type="checkbox" ng-model="strats[0].enabled" /></div><input type="hidden"
+                ng-model="strats[0].type" />
+            <div>Price: <input ng-model="strats[0].price" /></div>
+            <div>downpaymentPctn: <input ng-model="strats[0].downpaymentPctn" /></div>
+            <div>mortgage: <input ng-model="strats[0].mortgage" /></div>
+        </div>
+        <div class="d-inline-block align-top">
+            <div>Buy a house</div>
+            <div>Enabled: <input type="checkbox" ng-model="strats[1].enabled" /></div><input type="hidden"
+                ng-model="strats[1].type" ng-init="strats[1].type='BuyHouse'" />
+            <div>Price: <input ng-model="strats[1].price" /></div>
+            <div>downpaymentPctn: <input ng-model="strats[1].downpaymentPctn" /></div>
+            <div>mortgage: <input ng-model="strats[1].mortgage" /></div>
+        </div>
+        <div class="d-inline-block align-top">
+            <div>Make a baby</div>
+            <div>Enabled: <input type="checkbox" ng-model="strats[2].enabled" /></div><input type="hidden"
+                ng-model="strats[2].type" ng-init="strats[2].type='MakeBaby'" />
+            <div>Condition flag: <input ng-model="strats[2].conditionFlag" /></div>
+            <div>delay: <input ng-model="strats[2].delay" /></div>
+            <div>workBeforeDecret: <input ng-model="strats[2].workBeforeDecret" /></div>
+            <div>decretAfterBirth: <input ng-model="strats[2].decretAfterBirth" /></div>
+            <div>newSalary: <input ng-model="strats[2].newSalary" /></div>
+        </div>
+    </div>
+    <div class="d-inline-block align-top">
+        <div>Custom rule</div>
+        <div>Enabled: <input type="checkbox" checked ng-model="strats[3].enabled" /></div><input type="hidden"
+            ng-model="strats[3].type" ng-init="strats[3].type='Custom'" />
+        <div>One time: <input type="checkbox" ng-model="strats[3].once" /></div>
+        <div>Condition: <br /><textarea ng-model="strats[3].condition"></textarea>
+        </div>
+        <div>Effect: <br /><textarea ng-model="strats[3].effect"></textarea>
+        </div>
+
+    </div>
+    </div>
+    <p>{{ init.iters }}</p>
+    <button ng-click="calc()">Calculate</button>
+    <md-content md-theme="docs-dark" layout-gt-sm="col" layout-padding="" layout="column">
+        <div>
+            <md-input-container>
+                <label>Title</label>
+                <input ng-model="user.title">
+            </md-input-container>
+
+            <md-input-container>
+                <label>Email</label>
+                <input ng-model="user.email" type="email">
+            </md-input-container>
+        </div>
+    </md-content>
+    <table>
+        <thead>
+            <td>#</td>
+            <td>Date</td>
+            <td>downpayment</td>
+            <td>freeMoney</td>
+            <td>sergeySalary</td>
+            <td>valyaSalary</td>
+            <td>expenses<br />life</td>
+            <td>expenses<br />rent</td>
+            <td>expenses<br />mortgage</td>
+            <td>savingGoals<br />downpayment</td>
+            <td>flags</td>
+        </thead>
+        <tbody>
+            <tr ng-repeat-start="(i,row) in results" class="{{i%2?'row-striped':''}}">
+                <td>{{i}}</td>
+                <td>{{row.date.toString()}}</td>
+                <td>{{row.downpayment}}</td>
+                <td>{{row.freeMoney}}</td>
+                <td>{{row.sergeySalary}}</td>
+                <td>{{row.valyaSalary}}</td>
+                <td>{{row.expenses.life}}</td>
+                <td>{{row.expenses.rent}}</td>
+                <td>{{row.expenses.mortgage}}</td>
+                <td>{{row.savingGoals.downpayment}}</td>
+                <td>{{row.flags}}</td>
+            </tr>
+            <tr ng-repeat-end ng-repeat="(j,msg) in row.messageArray()" class="{{i%2?'row-striped':''}}">
+                <td>{{i}}.{{j}}</td>
+                <td>{{row.date.toString()}}</td>
+                <td colspan="9">{{msg}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-aria.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="lib/angular-material.min.js"></script>
+
+    <!-- Your application bootstrap  -->
+    <script type="text/javascript">
+        /**
+         * You must include the dependency on 'ngMaterial'
+         */
+
+    </script>
+    <script src="lib/script.js"></script>
+</body>
+
+</html>
+
+<!--
+Copyright 2016-2019 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://material.angularjs.org/latest/license.
+-->
