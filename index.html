@@ -19,40 +19,40 @@
     <div>
         <div class="d-inline-block align-top">
             <div>Init conditions</div>
-            <div>downpayment<input ng-model="init.downpayment" /></div>
-            <div>free-money<input ng-model="init.freeMoney" /></div>
-            <div>sergeySalary<input ng-model="init.sergeySalary" /></div>
-            <div>valyaSalary<input ng-model="init.valyaSalary" /></div>
-            <div>expenses.life<input ng-model="init.expenses.life" /></div>
-            <div>expenses.life<input ng-model="init.expenses.rent" /></div>
-            <div>goals.downpayment<input ng-model="init.goals.downpayment" /></div>
-            <div>iters<input ng-model="init.iters" /></div>
+            <div>downpayment<input type="number" ng-model="init.downpayment" /></div>
+            <div>free-money<input type="number" ng-model="init.freeMoney" /></div>
+            <div>sergeySalary<input type="number" ng-model="init.sergeySalary" /></div>
+            <div>valyaSalary<input type="number" ng-model="init.valyaSalary" /></div>
+            <div>expenses.life<input type="number" ng-model="init.expenses.life" /></div>
+            <div>expenses.life<input type="number" ng-model="init.expenses.rent" /></div>
+            <div>goals.downpayment<input type="number" ng-model="init.goals.downpayment" /></div>
+            <div>iters<input type="number" ng-model="init.iters" /></div>
         </div>
         <div class="d-inline-block align-top">
             <div>Buy a house</div>
-            <div>Enabled: <input type="checkbox" ng-model="strats[0].enabled" /></div><input type="hidden"
+            <div>Enabled: <input type="checkbox" ng-model="strats[0].enabled" /></div><input type="number" type="number" type="number" type="number" type="number" type="hidden"
                 ng-model="strats[0].type" />
-            <div>Price: <input ng-model="strats[0].price" /></div>
-            <div>downpaymentPctn: <input ng-model="strats[0].downpaymentPctn" /></div>
-            <div>mortgage: <input ng-model="strats[0].mortgage" /></div>
+            <div>Price: <input type="number" ng-model="strats[0].price" /></div>
+            <div>downpaymentPctn: <input type="number" ng-model="strats[0].downpaymentPctn" /></div>
+            <div>mortgage: <input type="number" ng-model="strats[0].mortgage" /></div>
         </div>
         <div class="d-inline-block align-top">
             <div>Buy a house</div>
             <div>Enabled: <input type="checkbox" ng-model="strats[1].enabled" /></div><input type="hidden"
                 ng-model="strats[1].type" ng-init="strats[1].type='BuyHouse'" />
-            <div>Price: <input ng-model="strats[1].price" /></div>
-            <div>downpaymentPctn: <input ng-model="strats[1].downpaymentPctn" /></div>
-            <div>mortgage: <input ng-model="strats[1].mortgage" /></div>
+            <div>Price: <input type="number" ng-model="strats[1].price" /></div>
+            <div>downpaymentPctn: <input type="number" ng-model="strats[1].downpaymentPctn" /></div>
+            <div>mortgage: <input type="number" ng-model="strats[1].mortgage" /></div>
         </div>
         <div class="d-inline-block align-top">
             <div>Make a baby</div>
             <div>Enabled: <input type="checkbox" ng-model="strats[2].enabled" /></div><input type="hidden"
                 ng-model="strats[2].type" ng-init="strats[2].type='MakeBaby'" />
             <div>Condition flag: <input ng-model="strats[2].conditionFlag" /></div>
-            <div>delay: <input ng-model="strats[2].delay" /></div>
-            <div>workBeforeDecret: <input ng-model="strats[2].workBeforeDecret" /></div>
-            <div>decretAfterBirth: <input ng-model="strats[2].decretAfterBirth" /></div>
-            <div>newSalary: <input ng-model="strats[2].newSalary" /></div>
+            <div>delay: <input type="number" ng-model="strats[2].delay" /></div>
+            <div>workBeforeDecret: <input type="number" ng-model="strats[2].workBeforeDecret" /></div>
+            <div>decretAfterBirth: <input type="number" ng-model="strats[2].decretAfterBirth" /></div>
+            <div>newSalary: <input type="number" ng-model="strats[2].newSalary" /></div>
         </div>
     </div>
     <div class="d-inline-block align-top">
